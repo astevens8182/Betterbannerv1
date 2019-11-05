@@ -1,5 +1,5 @@
 {
-  "name": "my-first-vue",
+  "name": "betterbanner",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -49,5 +49,9 @@
   "browserslist": [
     "> 1%",
     "last 2 versions"
-  ]
+  ],
+  "main": "index.js",
+  "repository": "https://github.com/astevens8182/Betterbannerv1.git",
+  "author": "Taylor Rhodes <rhodest@mail.gvsu.edu>",
+  "license": "MIT"
 }
