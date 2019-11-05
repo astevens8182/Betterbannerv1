@@ -2,7 +2,6 @@
 <div id=awda>
   <div >
  <header>
-        <h2>Taylor Rhodes</h2>
         <img src="banner.jpg" alt="Banner photo">
 </header>
       <nav>
