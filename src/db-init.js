@@ -5,13 +5,13 @@ import "firebase/auth";
 // Your web app's Firebase configuration
 var firebaseConfig = {
   /* content from your Firebase Dashboard */
-  apiKey: "AIzaSyAUgWuzlfgytNh1NW1VK9BIaUoi87EM924",
-    authDomain: "hw4v2-772af.firebaseapp.com",
-    databaseURL: "https://hw4v2-772af.firebaseio.com",
-    projectId: "hw4v2-772af",
-    storageBucket: "hw4v2-772af.appspot.com",
-    messagingSenderId: "542452231471",
-    appId: "1:542452231471:web:ee793889c80ce9e1a9c5da"
+  apiKey: "AIzaSyAjTJun732nLtAoGKcvTqjGXEzu6OysiDw",
+    authDomain: "betterbanner-f49d2.firebaseapp.com",
+    databaseURL: "https://betterbanner-f49d2.firebaseio.com",
+    projectId: "betterbanner-f49d2",
+    storageBucket: "betterbanner-f49d2.appspot.com",
+    messagingSenderId: "486277424142",
+    appId: "1:486277424142:web:3d2b00ae3b23dee34dc85f"
 };
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
