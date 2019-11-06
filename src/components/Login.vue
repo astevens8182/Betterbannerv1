@@ -2,7 +2,7 @@
 <div>
   <div >
  <header>
-        <img src="banner.jpg" alt="Banner photo">
+        <!-- <img src="banner.jpg" alt="Banner photo"> -->
 </header>
       <nav>
         <ul>
