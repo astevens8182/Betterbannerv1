@@ -2,7 +2,7 @@
   <v-app>
     <v-app-bar app>
       <v-toolbar-title class="headline text-uppercase">
-        <span>BetterBanner</span>
+        <span><img src="banner.jpg" alt="Banner photo"></span>
       </v-toolbar-title>
       <v-spacer></v-spacer>
       <v-btn @click="doSignout" v-show="isLoggedIn === true">Signout</v-btn>
