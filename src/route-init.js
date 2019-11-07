@@ -9,7 +9,7 @@ Vue.use(VueRouter);
 /* Map path to component */
 const routeTable = [
   { path: "/login", component: Login },
-  { path: "/home", component: Home},
+  { path: "/", component: Home},
   { path: "/eclasses", component: EClasses},
   { path: "/aclasses", component: AClasses }
 ];
