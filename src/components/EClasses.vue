@@ -6,11 +6,9 @@
 </header>
       <nav>        
           <a @click="goHome">Home</a>
-          <a @click="goLoginSignup">Login/Sign-up</a>
           <a @click="goAClasses">Available Classes</a>
           <a @click="goEClasses">Enrolled Classes</a>
           <a >Delete Account</a>
-          <a >Logout</a>
       </nav>
   </div>
 <div>
@@ -66,6 +64,10 @@ export default {
 </script>
 
 <style>
+nav {
+  text-align: center;
+}
+
 nav {
   padding: 5px;
   margin: 5px;
