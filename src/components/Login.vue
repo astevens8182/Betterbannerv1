@@ -1,36 +1,25 @@
 <template>
 <div>
-  <div>
-      <nav>        
-          <a class="title" @click="goHome">Home</a>
-          <a class="title" @click="goAClasses">Available Classes</a>
-          <a class="title" @click="goEClasses">Enrolled Classes</a>
-          <a class="title" >Delete Account</a>
-      </nav>
-  </div>
+  
 <div id="content">
 <v-text-field label="email/username" v-model="userEmail"></v-text-field>
 <v-text-field label="password" type="password" v-model="userPassword"></v-text-field>
-<v-container v-show="isLoggedIn === false">
   <v-row justify="end">
-    <v-btn @click="doSignUp">SignUp</v-btn>
-    <v-btn @click="doSignIn">SignIn</v-btn>
+    <v-btn @click="doSignup">SignUp</v-btn>
+    <v-btn @click="doSignin">SignIn</v-btn>
   </v-row>
-</v-container>
 </div>
 </div>
 </template>
 
 <script>
+import { AppAUTH } from "../db-init.js";
 
 export default {
   data: function() {
     return {    
-      abv: "",
-      number: 0,
-      totalSeats: 0,
-      remainingSeats: 0,
-      date: ""
+     userEmail: "",
+     userPassword: "",
     };
 
   },
@@ -46,7 +35,29 @@ export default {
   },
   goEClasses() {
         this.$router.push({ path: "/eclasses" });
-  }
+  },
+  doSignin(){
+  AppAUTH.signInWithEmailAndPassword(this.userEmail, this.userPassword)
+  .then((u) => {
+    alert("You logged in as " + u.user.email);
+    this.$router.push({ path: "/" });
+
+  })
+  .catch((err) => {
+    alert("Error " + err);
+  });
+  },
+  doSignup(){
+    AppAUTH.createUserWithEmailAndPassword(this.userEmail, this.userPassword)
+  .then((u) => {
+    alert("User created with UID " + u.user.uid);
+        this.$router.push({ path: "/" });
+
+  })
+  .catch((err) => {
+    alert("Error " + err);
+  });
+  },
   
   },
     mounted() {
