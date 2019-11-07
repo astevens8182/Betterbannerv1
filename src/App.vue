@@ -6,12 +6,12 @@
       </v-toolbar-title>
       <v-spacer></v-spacer>
       <v-btn @click="doSignout" v-show="isLoggedIn === true">Signout</v-btn>
-
     </v-app-bar>
 
     <v-content>
-  <router-view />
+      <router-view />
     </v-content>
+    
   </v-app>
 </template>
 
