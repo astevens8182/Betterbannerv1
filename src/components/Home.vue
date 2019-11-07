@@ -2,10 +2,10 @@
 <div id=awda>
   <div>
       <nav>        
-          <a @click="goHome">Home</a>
-          <a @click="goAClasses">Available Classes</a>
-          <a @click="goEClasses">Enrolled Classes</a>
-          <a >Delete Account</a>
+          <a class="font-weight-black" @click="goHome">Home</a>
+          <a class="font-weight-black" @click="goAClasses">Available Classes</a>
+          <a class="font-weight-black" @click="goEClasses">Enrolled Classes</a>
+          <a class="font-weight-black" >Delete Account</a>
       </nav>
   </div>
   <div id="content">
