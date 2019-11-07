@@ -2,10 +2,10 @@
 <div>
   <div>
       <nav>        
-          <a class="font-weight-black" @click="goHome">Home</a>
-          <a class="font-weight-black" @click="goAClasses">Available Classes</a>
-          <a class="font-weight-black" @click="goEClasses">Enrolled Classes</a>
-          <a class="font-weight-black" >Delete Account</a>
+          <a class="title" @click="goHome">Home</a>
+          <a class="title" @click="goAClasses">Available Classes</a>
+          <a class="title" @click="goEClasses">Enrolled Classes</a>
+          <a class="title" >Delete Account</a>
       </nav>
   </div>
 <div id="container">
