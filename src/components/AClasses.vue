@@ -1,41 +1,29 @@
 <template>
 <div>
-  <div>
-      <nav>        
-          <a class="title" @click="goHome">Home</a>
-          <a class="title" @click="goAClasses">Available Classes</a>
-          <a class="title" @click="goEClasses">Enrolled Classes</a>
-          <a class="title" >Delete Account</a>
-      </nav>
-  </div>
-<<<<<<< HEAD
-<div>
-  <h2>Available Classes</h2>
-</div>
 
-=======
 
   <div id="content">
   <h3>Available Classes</h3>
   
->>>>>>> 4f21679a6cac5c39338612042a33326fb2262e8e
   <table>
     <thead>
         <tr>
           <th>Abv</th>
           <th>Number</th>
+          <th>Description</th>
           <th>Total Seats</th>
           <th>Remaining Seats</th>
           <th>Time</th>
         </tr>
     </thead>
   <tbody>
-   <tr v-for="(x,pos) in myClass" :key="pos">
+   <tr v-for="(myClass,pos) in myClass" :key="pos">
     <td>{{ myClass.abv }}</td>
-    <td>{{ myClass.number }}</td>
+    <td>{{ myClass.numbers }}</td>
+    <td>{{ myClass.description}}</td>
     <td>{{ myClass.totalSeats }}</td>
     <td>{{ myClass.remainingSeats }}</td>
-    <td>{{ myClass.date }}</td>
+    <td>{{ myClass.meetingTime }}</td>
 
   </tr>
 
@@ -53,16 +41,19 @@
 
 <script>
 import { AppDB } from "../db-init.js";
+import { dataHandler} from "../App.vue";
 
 export default {
   data: function() {
     return {
       myClass: [],
       abv: "",
-      number: 0,
+      numbers: 0,
+      description: "",
       totalSeats: 0,
       remainingSeats: 0,
-      date: ""
+      meetingTime: "",
+      isLoggedin: false
     };
 
   },
@@ -89,8 +80,9 @@ export default {
   .push()
   .set({
     abv: this.abv,
-    meetingTime: this.date,
-    number: this.number,
+    meetingTime: this.meetingTime,
+    description: this.description,
+    numbers: this.number,
     remainingSeats: this.remainingSeats,
     totalSeats: this.totalSeats,
   });    
@@ -101,7 +93,7 @@ export default {
   },
     mounted() {
           AppDB.ref("classes").on("child_added", this.dataHandler);
-
+          this.isLoggedin = dataHandler.isLoggedIn;
   }
 };
   
