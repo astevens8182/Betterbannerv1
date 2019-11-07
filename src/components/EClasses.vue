@@ -53,7 +53,6 @@ export default {
   goEClasses() {
         this.$router.push({ path: "/eclasses" });
   }
-  
   },
     mounted() {
   }
