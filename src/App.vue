@@ -2,7 +2,6 @@
   <v-app>
     <v-app-bar app>
       <v-toolbar-title class="headline text-uppercase">
-        <!-- <span><img src="banner.jpg" alt="Banner photo"></span> -->
         <span>
           <div id="logo">
             <img src="./assets/banner.jpg">
