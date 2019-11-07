@@ -1,9 +1,6 @@
 <template>
 <div>
-  <div >
-<header>
-        <!-- <img src="banner.jpg" alt="Banner photo"> -->
-</header>
+  <div>
       <nav>        
           <a class="font-weight-black" @click="goHome">Home</a>
           <a class="font-weight-black" @click="goAClasses">Available Classes</a>
