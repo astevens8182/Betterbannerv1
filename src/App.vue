@@ -2,7 +2,6 @@
   <v-app>
     <v-app-bar app>
       <v-toolbar-title class="headline text-uppercase">
-        <!-- <span><img src="banner.jpg" alt="Banner photo"></span> -->
         <span>
           <div id="logo">
             <img src="./assets/banner.jpg">
@@ -10,9 +9,9 @@
         </span>
       </v-toolbar-title>
       <v-spacer></v-spacer>
-      <v-btn @click="doSignout" v-show="isLoggedIn === true">Sign out</v-btn>
-      <v-btn @click="goLoginSignup" v-show="isLoggedIn === false">Sign in</v-btn>
-      <v-btn v-show="isLoggedIn === false">Sign up</v-btn>
+      <v-btn class="ma-2" outlined color="blue" @click="doSignout" v-show="isLoggedIn === true">Sign out</v-btn>
+      <v-btn class="ma-2" outlined color="blue" @click="goLoginSignup" v-show="isLoggedIn === false">Sign in</v-btn>
+      <v-btn class="ma-2" outlined color="blue" v-show="isLoggedIn === false">Sign up</v-btn>
     </v-app-bar>
 
     <v-content>
