@@ -29,6 +29,11 @@
 export default {
   data: function() {
     return {    
+      abv: "",
+      number: 0,
+      totalSeats: 0,
+      remainingSeats: 0,
+      date: ""
     };
 
   },
