@@ -14,6 +14,7 @@
 <div>
   <h2>Available Classes</h2>
 </div>
+
   <table>
     <thead>
         <tr>
@@ -24,26 +25,46 @@
       <th>Time</th>
     </tr>
     </thead>
-    <tbody>
+  <tbody>
+   <tr v-for="(x,pos) in myClass" :key="pos">
+    <td>{{ myClass.abv }}</td>
+    <td>{{ myClass.number }}</td>
+    <td>{{ myClass.totalSeats }}</td>
+    <td>{{ myClass.remainingSeats }}</td>
+    <td>{{ myClass.date }}</td>
+
+  </tr>
+
   
-    </tbody>
+</tbody>
   </table>
 </div>
 </template>
 
 <script>
+import { AppDB } from "../db-init.js";
 
 export default {
   data: function() {
     return {
-      
+      myClass: [],
+      abv: "",
+      number: 0,
+      totalSeats: 0,
+      remainingSeats: 0,
+      date: ""
     };
 
   },
+  
   methods: {
   goHome() {
     this.$router.push({ path: "/" });
   },
+   dataHandler(snapshot) {
+      const item = snapshot.val();
+      this.myClass.push({ ...item, mykey: snapshot.key });
+   },
   goLoginSignup() {
     this.$router.push({ path: "/login" });
   },
@@ -52,10 +73,25 @@ export default {
   },
   goEClasses() {
         this.$router.push({ path: "/eclasses" });
-  }
+  },
+   yourButtonHandler() {
+  AppDB.ref("classes")
+  .push()
+  .set({
+    abv: this.abv,
+    meetingTime: this.date,
+    number: this.number,
+    remainingSeats: this.remainingSeats,
+    totalSeats: this.totalSeats,
+  });    
+  },
+    
+
   
   },
     mounted() {
+          AppDB.ref("classes").on("child_added", this.dataHandler);
+
   }
 };
   
