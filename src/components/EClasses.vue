@@ -76,4 +76,27 @@ nav a {
   padding: 5px;
   margin: 5px;
 }
+
+table {
+  padding: 5px;
+  margin: auto;
+  text-align: center;
+}
+
+th {
+  padding: 5px;
+  margin: 5px;
+  text-align: center;
+}
+
+#content {
+  text-align: left;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 5px;
+  border: 1px solid lightblue;
+  border-radius: 5px;
+}
+
 </style>
