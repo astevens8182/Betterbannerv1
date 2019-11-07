@@ -8,7 +8,7 @@
           <a class="title" >Delete Account</a>
       </nav>
   </div>
-<div id="container">
+<div id="content">
 <v-text-field label="email/username" v-model="userEmail"></v-text-field>
 <v-text-field label="password" type="password" v-model="userPassword"></v-text-field>
 <v-container v-show="isLoggedIn === false">
@@ -64,4 +64,15 @@ nav a {
   padding: 5px;
   margin: 5px;
 }
+
+#content {
+  text-align: left;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 5px;
+  border: 1px solid lightblue;
+  border-radius: 5px;
+}
+
 </style>
