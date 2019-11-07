@@ -1,9 +1,6 @@
 <template>
-<div id=awda>
-  <div >
- <header>
-        <!-- <img src="banner.jpg" alt="Banner photo"> -->
-</header>
+<div>
+  <div>
       <nav>        
           <a class="font-weight-black" @click="goHome">Home</a>
           <a class="font-weight-black" @click="goAClasses">Available Classes</a>
@@ -11,23 +8,28 @@
           <a class="font-weight-black" >Delete Account</a>
       </nav>
   </div>
-<div>
-  <h2>Available Classes</h2>
-</div>
+
+  <div id="content">
+  <h3>Available Classes</h3>
+  
   <table>
     <thead>
         <tr>
-      <th>Abv</th>
-      <th>Number</th>
-      <th>Total Seats</th>
-      <th>Remaining Seats</th>
-      <th>Time</th>
-    </tr>
-    </thead>
+          <th>Abv</th>
+          <th>Number</th>
+          <th>Total Seats</th>
+          <th>Remaining Seats</th>
+          <th>Time</th>
+        </tr>
+      </thead>
     <tbody>
   
     </tbody>
   </table>
+
+  <v-btn class="ma-2" outlined color="blue">Enroll</v-btn>
+
+  </div>
 </div>
 </template>
 
@@ -76,5 +78,27 @@ nav {
 nav a {
   padding: 5px;
   margin: 5px;
+}
+
+table {
+  padding: 5px;
+  margin: auto;
+  text-align: center;
+}
+
+th {
+  padding: 5px;
+  margin: 5px;
+  text-align: center;
+}
+
+#content {
+  text-align: left;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 5px;
+  border: 1px solid lightblue;
+  border-radius: 5px;
 }
 </style>
