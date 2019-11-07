@@ -1,13 +1,6 @@
 <template>
 <div>
-  <div>
-      <nav>        
-          <a class="title" @click="goHome">Home</a>
-          <a class="title" @click="goAClasses">Available Classes</a>
-          <a class="title" @click="goEClasses">Enrolled Classes</a>
-          <a class="title" >Delete Account</a>
-      </nav>
-  </div>
+  
 
   <div id="content">
   <h3>Enrolled Classes</h3>
