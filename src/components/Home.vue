@@ -27,7 +27,7 @@ export default {
   },
   methods: {
   goHome() {
-    this.$router.push({ path: "/" });
+    this.$router.push({ path: "/home" });
   },
   goLoginSignup() {
     this.$router.push({ path: "/login" });
@@ -62,7 +62,7 @@ nav a {
   margin-left: auto;
   margin-right: auto;
   padding: 5px;
-  border: 1px solid black;
-  border-radius: 10px;
+  border: 1px solid lightblue;
+  border-radius: 5px;
 }
 </style>
