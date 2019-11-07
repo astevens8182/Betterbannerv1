@@ -1,5 +1,5 @@
 <template>
-<div id=awda>
+<div>
   <div>
       <nav>        
           <a class="font-weight-black" @click="goHome">Home</a>
@@ -9,7 +9,7 @@
       </nav>
   </div>
   <div id="content">
-    <h2>Welcome!</h2>
+    <h3>Welcome!</h3>
   
     <p>FILLER TEXT</p>
   </div>
@@ -26,7 +26,6 @@ export default {
 
   },
   methods: {
-  
   goHome() {
     this.$router.push({ path: "/" });
   },
@@ -44,14 +43,12 @@ export default {
     mounted() {
   }
 };
-  
-
-
 </script>
 
 <style>
 nav {
   text-align: center;
+  padding-bottom: 10px;
 }
 
 nav a {
@@ -60,7 +57,12 @@ nav a {
 }
 
 #content {
+  text-align: left;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
   padding: 5px;
-  margin: 5px;
+  border: 1px solid black;
+  border-radius: 10px;
 }
 </style>
