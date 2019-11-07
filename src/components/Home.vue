@@ -1,5 +1,6 @@
 <template>
 <div>
+  
   <div>
       <nav>        
           <a class="font-weight-black" @click="goHome">Home</a>
@@ -8,11 +9,13 @@
           <a class="font-weight-black" >Delete Account</a>
       </nav>
   </div>
+
   <div id="content">
     <h3>Welcome!</h3>
   
     <p>FILLER TEXT</p>
   </div>
+
 </div>
 </template>
 
