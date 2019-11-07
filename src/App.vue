@@ -2,16 +2,23 @@
   <v-app>
     <v-app-bar app>
       <v-toolbar-title class="headline text-uppercase">
-        <span><img src="banner.jpg" alt="Banner photo"></span>
+        <!-- <span><img src="banner.jpg" alt="Banner photo"></span> -->
+        <span>
+          <div id="logo">
+            <img src="./assets/banner.jpg">
+          </div>
+        </span>
       </v-toolbar-title>
       <v-spacer></v-spacer>
-      <v-btn @click="doSignout" v-show="isLoggedIn === true">Signout</v-btn>
+      <v-btn @click="doSignout" v-show="isLoggedIn === true">Sign out</v-btn>
+      <v-btn @click="goLoginSignup" v-show="isLoggedIn === false">Sign in</v-btn>
+      <v-btn v-show="isLoggedIn === false">Sign up</v-btn>
     </v-app-bar>
 
     <v-content>
       <router-view />
     </v-content>
-    
+
   </v-app>
 </template>
 
@@ -34,6 +41,9 @@ methods:{
       this.$router.back();
     });
   },
+  goLoginSignup() {
+    this.$router.push({ path: "/login" });
+  },
 },
 mounted() {
 AppAUTH.onAuthStateChanged((u) => {
@@ -43,3 +53,9 @@ AppAUTH.onAuthStateChanged((u) => {
 }
 };
 </script>
+<style>
+span {
+  padding: 5px;
+  margin: 5px;
+}
+</style>
