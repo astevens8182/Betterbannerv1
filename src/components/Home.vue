@@ -1,18 +1,16 @@
 <template>
 <div id=awda>
   <div >
- <header>
-        <img src="banner.jpg" alt="Banner photo">
+<header>
+        <!-- <img src="banner.jpg" alt="Banner photo"> -->
 </header>
-      <nav>
-        <ul>
-          <li><a @click="goHome">Home</a></li>
-          <li><a @click="goLoginSignup">Login/Sign-up</a></li>
-          <li><a @click="goAClasses">Available Classes</a></li>
-          <li><a @click="goEClasses">Enrolled Classes</a></li>
-          <li><a >Delete Account</a></li>
-          <li><a >Logout</a></li>
-        </ul>
+      <nav>        
+          <a @click="goHome">Home</a>
+          <a @click="goLoginSignup">Login/Sign-up</a>
+          <a @click="goAClasses">Available Classes</a>
+          <a @click="goEClasses">Enrolled Classes</a>
+          <a >Delete Account</a>
+          <a >Logout</a>
       </nav>
   </div>
 <div>
@@ -32,8 +30,6 @@ export default {
 
   },
   methods: {
-        
-   
   goHome() {
     this.$router.push({ path: "/" });
   },
@@ -55,10 +51,15 @@ export default {
 
 
 </script>
+
 <style>
+nav {
+  padding: 5px;
+  margin: 5px;
+}
 
-
-
-
-
+nav a {
+  padding: 5px;
+  margin: 5px;
+}
 </style>
