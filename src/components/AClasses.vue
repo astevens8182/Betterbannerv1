@@ -27,7 +27,9 @@
     </tbody>
   </table>
 
-  <v-btn class="ma-2" outlined color="blue">Enroll</v-btn>
+  <div id="enroll">
+    <v-btn id ="enroll" class="ma-2 text-left" outlined color="blue">Enroll</v-btn>
+  </div>
 
   </div>
 </div>
@@ -100,5 +102,9 @@ th {
   padding: 5px;
   border: 1px solid lightblue;
   border-radius: 5px;
+}
+
+#enroll {
+  align: left;
 }
 </style>
