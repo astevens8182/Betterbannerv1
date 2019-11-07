@@ -42,7 +42,7 @@ export default {
   },
   methods: {
   goHome() {
-    this.$router.push({ path: "/home" });
+    this.$router.push({ path: "/" });
   },
   goLoginSignup() {
     this.$router.push({ path: "/login" });
