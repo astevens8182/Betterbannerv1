@@ -1,23 +1,20 @@
 <template>
 <div>
   <div >
- <header>
+<header>
         <!-- <img src="banner.jpg" alt="Banner photo"> -->
 </header>
-      <nav>
-        <ul>
-          <li><a @click="goHome">Home</a></li>
-          <li><a @click="goLoginSignup">Login/Sign-up</a></li>
-          <li><a @click="goAClasses">Available Classes</a></li>
-          <li><a @click="goEClasses">Enrolled Classes</a></li>
-          <li><a >Delete Account</a></li>
-          <li><a >Logout</a></li>
-        </ul>
+      <nav>        
+          <a @click="goHome">Home</a>
+          <a @click="goLoginSignup">Login/Sign-up</a>
+          <a @click="goAClasses">Available Classes</a>
+          <a @click="goEClasses">Enrolled Classes</a>
+          <a >Delete Account</a>
+          <a >Logout</a>
       </nav>
   </div>
 <div id="container">
-  
- <v-text-field label="email/username" v-model="userEmail"></v-text-field>
+<v-text-field label="email/username" v-model="userEmail"></v-text-field>
 <v-text-field label="password" type="password" v-model="userPassword"></v-text-field>
 <v-container v-show="isLoggedIn === false">
   <v-row justify="end">
@@ -58,7 +55,15 @@ export default {
   
 };
 </script>
+
 <style>
+nav {
+  padding: 5px;
+  margin: 5px;
+}
 
-
+nav a {
+  padding: 5px;
+  margin: 5px;
+}
 </style>
