@@ -34,7 +34,7 @@ export default {
   },
   methods: {
         goHome() {
-    this.$router.push({ path: "/" });
+    this.$router.push({ path: "/home" });
   },
   goLoginSignup() {
     this.$router.push({ path: "/login" });
