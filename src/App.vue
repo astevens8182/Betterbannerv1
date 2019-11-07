@@ -13,7 +13,6 @@
       <v-btn class="ma-2" outlined color="blue" @click="goLoginSignup" v-show="isLoggedIn === false">Sign in</v-btn>
       <v-btn class="ma-2" outlined color="blue" v-show="isLoggedIn === false">Sign up</v-btn>
     </v-app-bar>
-
     <v-content>
       <router-view />
     </v-content>
@@ -56,5 +55,8 @@ AppAUTH.onAuthStateChanged((u) => {
 span {
   padding: 5px;
   margin: 5px;
+}
+#header {
+  max-width: 630px;
 }
 </style>
