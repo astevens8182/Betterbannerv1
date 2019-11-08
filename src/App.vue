@@ -4,7 +4,7 @@
       <v-toolbar-title class="headline text-uppercase">
         <span>
           <div id="logo">
-            <img src="./assets/banner.jpg">
+            <v-img src="./assets/banner.jpg" max-width="200" max-height="59"></v-img>
           </div>
         </span>
       </v-toolbar-title>
