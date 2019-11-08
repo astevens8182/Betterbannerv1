@@ -9,10 +9,17 @@
         </span>
       </v-toolbar-title>
       <v-spacer></v-spacer>
+      <v-btn class="ma-2" outlined color="blue" @click="goLoginSignup"  v-show="isLoggedIn === false">Sign in/up</v-btn>
       <v-btn class="ma-2" outlined color="blue" @click="doSignout" v-show="isLoggedIn === true">Sign out</v-btn>
-      <v-btn class="ma-2" outlined color="blue" @click="goLoginSignup" v-show="isLoggedIn === false">Sign in</v-btn>
-      <v-btn class="ma-2" outlined color="blue" v-show="isLoggedIn === false">Sign up</v-btn>
+    <nav>        
+          <a class="title" @click="goHome">Home</a>
+          <a class="title" @click="goAClasses">Available Classes</a>
+          <a v-show="isLoggedin === false" class="title" @click="goEClasses">Enrolled Classes</a>
+          <a class="title" >Delete Account</a>
+      </nav>
     </v-app-bar>
+
+      
     <v-content>
       <router-view />
     </v-content>
@@ -39,8 +46,18 @@ methods:{
       this.$router.back();
     });
   },
+  
   goLoginSignup() {
     this.$router.push({ path: "/login" });
+  },
+  goHome() {
+    this.$router.push({ path: "/" });
+  },
+  goAClasses() {
+        this.$router.push({ path: "/aclasses" });
+  },
+  goEClasses() {
+        this.$router.push({ path: "/eclasses" });
   },
 },
 mounted() {
