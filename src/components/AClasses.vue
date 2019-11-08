@@ -50,6 +50,7 @@
           <td>{{ myClass.totalSeats }}</td>
           <td>{{ myClass.remainingSeats }}</td>
           <td>{{ myClass.meetingTime }}</td>
+          <td><input type="checkbox" v-bind:id="myClass.mykey" v-on:change="selectionHandler" /></td>
         </tr>
       </tbody>
     </template>
@@ -77,43 +78,49 @@ export default {
       meetingTime: "",
       isLoggedIn: false,
     };
-
   },
   
   methods: {
   
-   dataHandler(snapshot) {
+    dataHandler(snapshot) {
       const item = snapshot.val();
       this.myClass.push({ ...item, mykey: snapshot.key });
+    },
+  
+    yourButtonHandler() {
+      AppDB.ref("classes")
+        .push()
+        .set({
+          abv: this.abv,
+          meetingTime: this.meetingTime,
+          description: this.description,
+          numbers: this.number,
+          remainingSeats: this.remainingSeats,
+          totalSeats: this.totalSeats,
+      });    
+    },
 
-   },
-   yourButtonHandler() {
-  AppDB.ref("classes")
-  .push()
-  .set({
-    abv: this.abv,
-    meetingTime: this.meetingTime,
-    description: this.description,
-    numbers: this.number,
-    remainingSeats: this.remainingSeats,
-    totalSeats: this.totalSeats,
-  });    
+    selectionHandler (changeEvent) {
+      // The ID of the checkbox is also the key of the record in Firebase
+      const whichKey = changeEvent.target.id;
+      if (changeEvent.target.checked) {
+      // add the selected key to the array
+        this.userSelections.push(whichKey);
+      } else {
+      // remove the deselected key from the array
+          this.userSelections = this.userSelections.filter(a => {a.whichKey == whichKey});        
+      }
+    }, 
   },
-  
-  
-  },
+
     mounted() {
-   
           AppDB.ref("classes").on("child_added", this.dataHandler);
           AppAUTH.onAuthStateChanged((u) => {
           if (u == null) this.isLoggedIn = false;
           else this.isLoggedIn = true;
-
-            });
-          
+            });         
   }
 };
-  
 
 
 </script>
@@ -155,5 +162,4 @@ th {
   border: 1px solid lightblue;
   border-radius: 5px;
 }
-
 </style>
