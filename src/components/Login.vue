@@ -12,8 +12,8 @@
   <v-text-field label="email/username" v-model="userEmail"></v-text-field>
   <v-text-field label="password" type="password" v-model="userPassword"></v-text-field>
     <v-row justify="end">
-      <v-btn class="ma-2" outlined color="blue" @click="doSignup">SignUp</v-btn>
-      <v-btn class="ma-2" outlined color="blue" @click="doSignin">SignIn</v-btn>
+      <v-btn class="ma-2" outlined color="blue" @click="doSignup">Sign Up</v-btn>
+      <v-btn class="ma-2" outlined color="blue" @click="doSignin">Sign In</v-btn>
     </v-row>
   </div>
 
