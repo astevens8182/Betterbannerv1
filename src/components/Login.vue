@@ -32,41 +32,43 @@ export default {
 
   },
   methods: {
-        goHome() {
-    this.$router.push({ path: "/" });
-  },
-  goLoginSignup() {
-    this.$router.push({ path: "/login" });
-  },
-  goAClasses() {
-        this.$router.push({ path: "/aclasses" });
-  },
-  goEClasses() {
-        this.$router.push({ path: "/eclasses" });
-  },
-  doSignin(){
-  AppAUTH.signInWithEmailAndPassword(this.userEmail, this.userPassword)
-  .then((u) => {
-    alert("You logged in as " + u.user.email);
-    this.$router.push({ path: "/" });
+    goHome() {
+      this.$router.push({ path: "/" });
+    },
 
-  })
-  .catch((err) => {
-    alert("Error " + err);
-  });
+    goLoginSignup() {
+      this.$router.push({ path: "/login" });
+    },
+
+    goAClasses() {
+      this.$router.push({ path: "/aclasses" });
+    },
+
+    goEClasses() {
+      this.$router.push({ path: "/eclasses" });
+    },
+
+    doSignin(){
+    AppAUTH.signInWithEmailAndPassword(this.userEmail, this.userPassword)
+    .then((u) => {
+      alert("You logged in as " + u.user.email);
+        this.$router.push({ path: "/" });
+    })
+      .catch((err) => {
+        alert("Error " + err);
+    });
   },
+
   doSignup(){
     AppAUTH.createUserWithEmailAndPassword(this.userEmail, this.userPassword)
-  .then((u) => {
-    alert("User created with UID " + u.user.uid);
+    .then((u) => {
+      alert("User created with UID " + u.user.uid);
         this.$router.push({ path: "/" });
-
-  })
-  .catch((err) => {
-    alert("Error " + err);
-  });
+    })
+    .catch((err) => {
+      alert("Error " + err);
+    });
   },
-  
   },
     mounted() {
   }
