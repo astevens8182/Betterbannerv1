@@ -60,6 +60,7 @@ nav a {
   max-width: 600px;
   margin-left: auto;
   margin-right: auto;
+  margin-top: 20px;
   padding: 5px;
   border: 1px solid lightblue;
   border-radius: 5px;
