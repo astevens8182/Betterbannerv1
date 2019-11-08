@@ -1,14 +1,22 @@
 <template>
-<div>
-  
 <div id="content">
-<v-text-field label="email/username" v-model="userEmail"></v-text-field>
-<v-text-field label="password" type="password" v-model="userPassword"></v-text-field>
-  <v-row justify="end">
-    <v-btn @click="doSignup">SignUp</v-btn>
-    <v-btn @click="doSignin">SignIn</v-btn>
-  </v-row>
-</div>
+  
+  <div id="innerContentL">
+    <p>
+      If you've already created an account, please sign-in.<br><br>
+      If you do not have an account, please sign-up using the following form. Password must be at least 6 characters.
+    </p>
+  </div>
+
+  <div id="innerContentR">
+  <v-text-field label="email/username" v-model="userEmail"></v-text-field>
+  <v-text-field label="password" type="password" v-model="userPassword"></v-text-field>
+    <v-row justify="end">
+      <v-btn class="ma-2" outlined color="blue" @click="doSignup">SignUp</v-btn>
+      <v-btn class="ma-2" outlined color="blue" @click="doSignin">SignIn</v-btn>
+    </v-row>
+  </div>
+
 </div>
 </template>
 
@@ -18,8 +26,8 @@ import { AppAUTH } from "../db-init.js";
 export default {
   data: function() {
     return {    
-     userEmail: "",
-     userPassword: "",
+      userEmail: "",
+      userPassword: "",
     };
 
   },
@@ -82,13 +90,41 @@ nav a {
 }
 
 #content {
+  /*
+  display: grid;
+  grid-template-rows: repeat(1, 1fr);
+  grid-template-columns: repeat(2, 1fr);
+  */
   text-align: left;
-  max-width: 600px;
+  max-width: 850px;
   margin-left: auto;
   margin-right: auto;
+  margin-top: 20px;
   padding: 5px;
   border: 1px solid lightblue;
   border-radius: 5px;
+}
+
+#innerContentR {
+  /*
+  grid-row-start: 1;
+  grid-column-start: 2;
+  */
+  max-width: 400px;
+  margin: auto;
+  padding: 10px;
+}
+
+#innerContentL {
+  /*
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  grid-row-start: 1;
+  grid-column-start: 1;
+  */
+  max-width: 800px;
+  margin: auto;
 }
 
 </style>
