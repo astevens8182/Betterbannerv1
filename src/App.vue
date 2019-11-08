@@ -14,13 +14,12 @@
           <v-btn text small @click="goHome">Home</v-btn>
           <v-btn text small @click="goAClasses">Available Classes</v-btn>
           <v-btn text small @click="goEClasses" v-show="isLoggedIn === true">Enrolled Classes</v-btn>
-          <v-btn text small>Delete Account</v-btn>
+          <v-btn text small @click="goEClasses" v-show="isLoggedIn === true">Delete Account</v-btn>
           <v-btn class="ma-2" outlined color="blue" @click="goLoginSignup"  v-show="isLoggedIn === false">Sign in/up</v-btn>
           <v-btn class="ma-2" outlined color="blue" @click="doSignout" v-show="isLoggedIn === true">Sign out</v-btn>
-      </nav>
+    </nav>
     </v-app-bar>
-
-      
+  
     <v-content>
       <router-view />
     </v-content>
@@ -39,7 +38,7 @@ export default {
 
   data: () => ({
     //
-    isLoggedIn: false
+    isLoggedIn: false,
   }),
 
 methods:{
