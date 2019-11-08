@@ -23,12 +23,14 @@
     </template>
   </v-simple-table>
 
+  <v-btn @click="myRemoveHandler" v-bind:disabled="userSelections.length == 0" class="ma-2" outlined color="blue">Remove Selection(s)</v-btn>
+
   </div>
 </div>
 </template>
 
 <script>
-
+import { AppDB } from "../db-init.js";
 export default {
   data: function() {
     return {
@@ -37,18 +39,20 @@ export default {
       totalSeats: 0,
       remainingSeats: 0,
       date: "",
+      userSelections: []
     };
 
   },
   methods: {
-   
+  myRemoveHandler () {
+    this.userSelections.forEach((victimKey) => {
+      AppDB.ref('budget').child(victimKey).remove();
+      })
+    },
   },
     mounted() {
   }
 };
-  
-
-
 </script>
 
 <style>
