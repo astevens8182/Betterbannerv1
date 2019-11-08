@@ -2,37 +2,32 @@
 <div>
 
   <div id="content">
-  <h3>Available Classes</h3>
+    <h3>Available Classes</h3>
   
-  <table>
-    <thead>
-        <tr>
-          <th>Abv</th>
-          <th>Number</th>
-          <th>Description</th>
-          <th>Total Seats</th>
-          <th>Remaining Seats</th>
-          <th>Time</th>
+    <table>
+      <thead>
+          <tr>
+            <th>Abv</th>
+            <th>Number</th>
+            <th>Description</th>
+            <th>Total Seats</th>
+            <th>Remaining Seats</th>
+            <th>Time</th>
+          </tr>
+      </thead>
+      <tbody>
+        <tr v-for="(myClass,pos) in myClass" :key="pos">
+          <td>{{ myClass.abv }}</td>
+          <td>{{ myClass.numbers }}</td>
+          <td>{{ myClass.description}}</td>
+          <td>{{ myClass.totalSeats }}</td>
+          <td>{{ myClass.remainingSeats }}</td>
+          <td>{{ myClass.meetingTime }}</td>
         </tr>
-    </thead>
-  <tbody>
-   <tr v-for="(myClass,pos) in myClass" :key="pos">
-    <td>{{ myClass.abv }}</td>
-    <td>{{ myClass.numbers }}</td>
-    <td>{{ myClass.description}}</td>
-    <td>{{ myClass.totalSeats }}</td>
-    <td>{{ myClass.remainingSeats }}</td>
-    <td>{{ myClass.meetingTime }}</td>
+      </tbody>
+    </table>
 
-  </tr>
-
-  
-</tbody>
-  </table>
-
-  <div id="enroll">
-    <v-btn id ="enroll" class="ma-2 text-left" outlined color="blue">Enroll</v-btn>
-  </div>
+    <v-btn id ="enroll" class="ma-2" outlined color="blue">Enroll</v-btn>
 
   </div>
 </div>
