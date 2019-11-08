@@ -5,7 +5,7 @@
   <div id="content">
   <p class="font-weight-black">Enrolled Classes</p>
   
-  <v-simple-table>
+  <v-simple-table dark>
     <template v-slot:default>
       <thead>
         <tr>
