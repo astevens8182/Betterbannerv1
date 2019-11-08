@@ -14,7 +14,7 @@
     <nav>        
           <a class="title" @click="goHome">Home</a>
           <a class="title" @click="goAClasses">Available Classes</a>
-          <a v-show="isLoggedin === false" class="title" @click="goEClasses">Enrolled Classes</a>
+          <a class="title" @click="goEClasses">Enrolled Classes</a>
           <a class="title" >Delete Account</a>
       </nav>
     </v-app-bar>
@@ -33,7 +33,9 @@ import { AppAUTH } from './db-init';
 export default {
   name: 'App',
   components: {
+
   },
+
   data: () => ({
     //
     isLoggedIn: false
