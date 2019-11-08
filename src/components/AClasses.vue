@@ -75,7 +75,7 @@ export default {
       totalSeats: 0,
       remainingSeats: 0,
       meetingTime: "",
-      isLoggedin: false,
+      isLoggedIn: false,
     };
 
   },
