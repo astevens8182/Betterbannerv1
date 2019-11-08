@@ -2,7 +2,7 @@
 <div id="content">
   
   <div id="innerContentL">
-    <p>
+    <p class="font-weight-regular">
       If you've already created an account, please sign-in.<br><br>
       If you do not have an account, please sign-up using the following form. Password must be at least 6 characters.
     </p>
@@ -125,6 +125,7 @@ nav a {
   */
   max-width: 800px;
   margin: auto;
+  padding-top: 10px;
 }
 
 </style>
