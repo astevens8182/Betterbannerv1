@@ -8,17 +8,10 @@
           <a class="title" >Delete Account</a>
       </nav>
   </div>
-<<<<<<< HEAD
-<div>
-  <h2>Available Classes</h2>
-</div>
-
-=======
 
   <div id="content">
   <h3>Available Classes</h3>
   
->>>>>>> 4f21679a6cac5c39338612042a33326fb2262e8e
   <table>
     <thead>
         <tr>
