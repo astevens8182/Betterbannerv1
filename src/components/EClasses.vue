@@ -46,7 +46,7 @@ export default {
   methods: {
   myRemoveHandler () {
     this.userSelections.forEach((victimKey) => {
-      AppDB.ref('budget').child(victimKey).remove();
+        AppDB.ref('budget').child(victimKey).remove();
       })
     },
   },
