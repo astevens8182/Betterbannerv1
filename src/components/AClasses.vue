@@ -2,9 +2,9 @@
 <div>
 
   <div id="content">
-    <h3>Available Classes</h3>
+    <p class="font-weight-black">Available Classes</p>
   
-    <table>
+    <!-- <table>
       <thead>
           <tr>
             <th>Abv</th>
@@ -28,7 +28,34 @@
       </tbody>
     </table>
 
-    <v-btn id ="enroll" class="ma-2" v-show="isLoggedIn === true" outlined color="blue">Enroll</v-btn>
+    <v-btn id ="enroll" class="ma-2" outlined color="blue">Enroll</v-btn> -->
+
+  <v-simple-table dark>
+    <template v-slot:default>
+      <thead>
+        <tr>
+          <th class="text-center">Abv</th>
+          <th class="text-center">Number</th>
+          <th class="text-center">Description</th>
+          <th class="text-center">Total Seats</th>
+          <th class="text-center">Remaining Seats</th>
+          <th class="text-center">Time</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr v-for="(myClass,pos) in myClass" :key="pos">
+          <td>{{ myClass.abv }}</td>
+          <td>{{ myClass.numbers }}</td>
+          <td>{{ myClass.description}}</td>
+          <td>{{ myClass.totalSeats }}</td>
+          <td>{{ myClass.remainingSeats }}</td>
+          <td>{{ myClass.meetingTime }}</td>
+        </tr>
+      </tbody>
+    </template>
+  </v-simple-table>
+
+  <v-btn id ="enroll" v-show="isLoggedIn === true" class="ma-2" outlined color="blue">Enroll</v-btn>
 
   </div>
 </div>
@@ -48,8 +75,7 @@ export default {
       totalSeats: 0,
       remainingSeats: 0,
       meetingTime: "",
-      isLoggedIn: false,
-      email: "",
+      isLoggedin: false,
     };
 
   },
@@ -122,9 +148,9 @@ th {
 #content {
   text-align: left;
   max-width: 600px;
-  margin-left: auto;
+  margin-left: 20px;
   margin-right: auto;
-  margin-top: 20px;
+  margin-top: auto;
   padding: 5px;
   border: 1px solid lightblue;
   border-radius: 5px;

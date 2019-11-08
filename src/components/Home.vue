@@ -4,9 +4,9 @@
   
 
   <div id="content">
-    <h3>Welcome!</h3>
+    <p class="font-weight-black">Welcome!</p>
   
-    <p>FILLER TEXT</p>
+    <p class="font-weight-regular">FILLER TEXT</p>
   </div>
 
 </div>

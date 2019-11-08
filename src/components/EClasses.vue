@@ -3,22 +3,25 @@
   
 
   <div id="content">
-  <h3>Enrolled Classes</h3>
+  <p class="font-weight-black">Enrolled Classes</p>
   
-  <table>
-    <thead>
+  <v-simple-table dark>
+    <template v-slot:default>
+      <thead>
         <tr>
-          <th>Abv</th>
-          <th>Number</th>
-          <th>Total Seats</th>
-          <th>Remaining Seats</th>
-          <th>Time</th>
+          <th class="text-center">Abv</th>
+          <th class="text-center">Number</th>
+          <th class="text-center">Description</th>
+          <th class="text-center">Total Seats</th>
+          <th class="text-center">Remaining Seats</th>
+          <th class="text-center">Time</th>
         </tr>
-    </thead>
-    <tbody>
-  
-    </tbody>
-  </table>
+      </thead>
+      <tbody>
+        
+      </tbody>
+    </template>
+  </v-simple-table>
 
   </div>
 </div>
