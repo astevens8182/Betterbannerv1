@@ -9,13 +9,14 @@
         </span>
       </v-toolbar-title>
       <v-spacer></v-spacer>
-      <v-btn class="ma-2" outlined color="blue" @click="goLoginSignup"  v-show="isLoggedIn === false">Sign in/up</v-btn>
-      <v-btn class="ma-2" outlined color="blue" @click="doSignout" v-show="isLoggedIn === true">Sign out</v-btn>
+      
     <nav>        
-          <a class="title" @click="goHome">Home</a>
-          <a class="title" @click="goAClasses">Available Classes</a>
-          <a class="title" @click="goEClasses">Enrolled Classes</a>
-          <a class="title" >Delete Account</a>
+          <v-btn text small @click="goHome">Home</v-btn>
+          <v-btn text small @click="goAClasses">Available Classes</v-btn>
+          <v-btn text small @click="goEClasses" v-show="isLoggedIn === true">Enrolled Classes</v-btn>
+          <v-btn text small>Delete Account</v-btn>
+          <v-btn class="ma-2" outlined color="blue" @click="goLoginSignup"  v-show="isLoggedIn === false">Sign in/up</v-btn>
+          <v-btn class="ma-2" outlined color="blue" @click="doSignout" v-show="isLoggedIn === true">Sign out</v-btn>
       </nav>
     </v-app-bar>
 
