@@ -6,10 +6,12 @@
           <div id="logo">
             <v-img src="./assets/banner.jpg" max-width="200" max-height="59"></v-img>
           </div>
+
         </span>
+
       </v-toolbar-title>
       <v-spacer></v-spacer>
-      
+
     <nav>        
           <v-btn text small @click="goHome">Home</v-btn>
           <v-btn text small @click="goAClasses">Available Classes</v-btn>
@@ -18,8 +20,8 @@
           <v-btn class="ma-2" outlined color="blue" @click="goLoginSignup"  v-show="isLoggedIn === false">Sign in/up</v-btn>
           <v-btn class="ma-2" outlined color="blue" @click="doSignout" v-show="isLoggedIn === true">Sign out</v-btn>
     </nav>
+    <v-btn v-show="isLoggedIn === true">{{email}}</v-btn>
     </v-app-bar>
-  
     <v-content>
       <router-view />
     </v-content>
@@ -33,11 +35,10 @@ import { AppAUTH } from './db-init';
 export default {
   name: 'App',
   components: {
-
   },
 
   data: () => ({
-    //
+    email: "",
     isLoggedIn: false,
   }),
 
@@ -66,6 +67,8 @@ mounted() {
 AppAUTH.onAuthStateChanged((u) => {
   if (u == null) this.isLoggedIn = false;
   else this.isLoggedIn = true;
+      this.email = u.email;
+
 });
 }
 };
