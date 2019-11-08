@@ -22,27 +22,27 @@
     </v-app-bar>
     -->
     <div>
-    <v-app-bar
-      color="blue accent-4"
-      dark
-    >
+      <v-app-bar
+        color="blue accent-4"
+        dark
+      >
       <v-toolbar-title>Better Banner</v-toolbar-title>
       <v-spacer></v-spacer>
 
-    <div class="text-center">
-    <v-chip
-      class="ma-2"
-      color="black"
-      text-color="white"
-      v-show="isLoggedIn === true"
-    >
-    <v-avatar left v-show="isLoggedIn === true">
-    <v-icon>mdi-account-circle</v-icon>
-    </v-avatar>
+      <div class="text-center">
+      <v-chip
+        class="ma-2"
+        color="black"
+        text-color="white"
+        v-show="isLoggedIn === true"
+      >
+      <v-avatar left v-show="isLoggedIn === true">
+      <v-icon>mdi-account-circle</v-icon>
+      </v-avatar>
       <v-btn class="ma-2" color="black" v-show="isLoggedIn === true">{{email}}</v-btn>
-    </v-chip>
+      </v-chip>
 
-    </div>
+      </div>
           <v-btn class="ma-2" outlined color="white" @click="goLoginSignup"  v-show="isLoggedIn === false">Sign in/up</v-btn>
           <v-btn class="ma-2" outlined color="white" @click="doSignout" v-show="isLoggedIn === true">Sign out</v-btn>
       <v-menu
@@ -63,9 +63,6 @@
       </v-menu>
     </v-app-bar>
   </div>
-
-
-
 
     <v-content>
       <router-view />
