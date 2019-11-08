@@ -13,6 +13,7 @@
             <th>Total Seats</th>
             <th>Remaining Seats</th>
             <th>Time</th>
+            <th>Select</th>
           </tr>
       </thead>
       <tbody>
@@ -27,7 +28,7 @@
       </tbody>
     </table>
 
-    <v-btn id ="enroll" class="ma-2" outlined color="blue">Enroll</v-btn>
+    <v-btn id ="enroll" class="ma-2" v-show="isLoggedIn === true" outlined color="blue">Enroll</v-btn>
 
   </div>
 </div>
@@ -35,7 +36,7 @@
 
 <script>
 import { AppDB } from "../db-init.js";
-import { dataHandler} from "../App.vue";
+import { AppAUTH } from "../db-init.js";
 
 export default {
   data: function() {
@@ -47,28 +48,19 @@ export default {
       totalSeats: 0,
       remainingSeats: 0,
       meetingTime: "",
-      isLoggedin: false
+      isLoggedIn: false,
+      email: "",
     };
 
   },
   
   methods: {
-  goHome() {
-    this.$router.push({ path: "/" });
-  },
+  
    dataHandler(snapshot) {
       const item = snapshot.val();
       this.myClass.push({ ...item, mykey: snapshot.key });
+
    },
-  goLoginSignup() {
-    this.$router.push({ path: "/login" });
-  },
-  goAClasses() {
-        this.$router.push({ path: "/aclasses" });
-  },
-  goEClasses() {
-        this.$router.push({ path: "/eclasses" });
-  },
    yourButtonHandler() {
   AppDB.ref("classes")
   .push()
@@ -81,13 +73,18 @@ export default {
     totalSeats: this.totalSeats,
   });    
   },
-    
-
+  
   
   },
     mounted() {
+   
           AppDB.ref("classes").on("child_added", this.dataHandler);
-          this.isLoggedin = dataHandler.isLoggedIn;
+          AppAUTH.onAuthStateChanged((u) => {
+          if (u == null) this.isLoggedIn = false;
+          else this.isLoggedIn = true;
+
+            });
+          
   }
 };
   
