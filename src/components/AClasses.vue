@@ -1,17 +1,5 @@
 <template>
 <div>
-<<<<<<< HEAD
-  <div>
-      <nav>        
-          <a class="title" @click="goHome">Home</a>
-          <a class="title" @click="goAClasses">Available Classes</a>
-          <a class="title" @click="goEClasses">Enrolled Classes</a>
-          <a class="title" >Delete Account</a>
-      </nav>
-  </div>
-=======
-
->>>>>>> 964a72d72a78aceb00b8cae1d348bb8a1498c6c5
 
   <div id="content">
   <h3>Available Classes</h3>
@@ -144,6 +132,7 @@ th {
   max-width: 600px;
   margin-left: auto;
   margin-right: auto;
+  margin-top: 20px;
   padding: 5px;
   border: 1px solid lightblue;
   border-radius: 5px;
