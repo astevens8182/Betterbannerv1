@@ -26,19 +26,18 @@ export default {
 
   },
   methods: {
-  goHome() {
-    this.$router.push({ path: "/" });
-  },
-  goLoginSignup() {
-    this.$router.push({ path: "/login" });
-  },
-  goAClasses() {
-        this.$router.push({ path: "/aclasses" });
-  },
-  goEClasses() {
-        this.$router.push({ path: "/eclasses" });
-  }
-  
+    goHome() {
+      this.$router.push({ path: "/" });
+    },
+    goLoginSignup() {
+      this.$router.push({ path: "/login" });
+    },
+    goAClasses() {
+      this.$router.push({ path: "/aclasses" });
+    },
+    goEClasses() {
+      this.$router.push({ path: "/eclasses" });
+    }
   },
     mounted() {
   }
