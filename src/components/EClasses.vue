@@ -33,23 +33,12 @@ export default {
       number: 0,
       totalSeats: 0,
       remainingSeats: 0,
-      date: ""
+      date: "",
     };
 
   },
   methods: {
-  goHome() {
-    this.$router.push({ path: "/" });
-  },
-  goLoginSignup() {
-    this.$router.push({ path: "/login" });
-  },
-  goAClasses() {
-        this.$router.push({ path: "/aclasses" });
-  },
-  goEClasses() {
-        this.$router.push({ path: "/eclasses" });
-  }
+   
   },
     mounted() {
   }
