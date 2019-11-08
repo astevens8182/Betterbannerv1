@@ -28,7 +28,21 @@
     >
       <v-toolbar-title>Better Banner</v-toolbar-title>
       <v-spacer></v-spacer>
-      <v-btn text large v-show="isLoggedIn === true">{{email}}</v-btn>
+
+    <div class="text-center">
+    <v-chip
+      class="ma-2"
+      color="black"
+      text-color="white"
+      v-show="isLoggedIn === true"
+    >
+    <v-avatar left v-show="isLoggedIn === true">
+    <v-icon>mdi-account-circle</v-icon>
+    </v-avatar>
+      <v-btn class="ma-2" color="black" v-show="isLoggedIn === true">{{email}}</v-btn>
+    </v-chip>
+
+    </div>
           <v-btn class="ma-2" outlined color="white" @click="goLoginSignup"  v-show="isLoggedIn === false">Sign in/up</v-btn>
           <v-btn class="ma-2" outlined color="white" @click="doSignout" v-show="isLoggedIn === true">Sign out</v-btn>
       <v-menu
