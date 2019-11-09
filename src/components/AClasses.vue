@@ -56,7 +56,7 @@
     </template>
   </v-simple-table>
 
-  <v-btn id ="enroll" v-show="isLoggedIn === true" class="ma-2" outlined color="blue">Enroll</v-btn>
+  <v-btn id ="enroll" v-bind:disabled="userSelections.length == 0" @click="yourButtonHandler" v-show="isLoggedIn === true" class="ma-2" outlined color="blue">Enroll</v-btn>
 
   </div>
 </div>
@@ -77,6 +77,7 @@ export default {
       remainingSeats: 0,
       meetingTime: "",
       isLoggedIn: false,
+      userSelections: []
     };
   },
   
@@ -116,10 +117,10 @@ export default {
     mounted() {
           AppDB.ref("classes").on("child_added", this.dataHandler);
           AppAUTH.onAuthStateChanged((u) => {
-          if (u == null) this.isLoggedIn = false;
-          else this.isLoggedIn = true;
-            });         
-  }
+            if (u == null) this.isLoggedIn = false;
+            else this.isLoggedIn = true;
+          });         
+    }
 };
 
 
