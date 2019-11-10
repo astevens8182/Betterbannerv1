@@ -57,7 +57,7 @@
   </v-simple-table>
   </div>
 
-  <v-btn id ="enroll" v-bind:disabled="userSelections.length == 0" @click="yourButtonHandler" v-show="isLoggedIn === true" class="ma-2" outlined color="blue">Enroll</v-btn>
+  <v-btn id="enroll" v-bind:disabled="userSelections.length == 0" @click="yourButtonHandler" v-show="isLoggedIn === true" class="ma-2" outlined color="blue">Enroll</v-btn>
 
   </div>
 </div>
@@ -90,13 +90,13 @@ export default {
     },
   
     yourButtonHandler() {
-      AppDB.ref("classes")
+      AppDB.ref("enrolled")
         .push()
         .set({
           abv: this.abv,
           meetingTime: this.meetingTime,
           description: this.description,
-          numbers: this.number,
+          numbers: this.numbers,
           remainingSeats: this.remainingSeats,
           totalSeats: this.totalSeats,
       });    
