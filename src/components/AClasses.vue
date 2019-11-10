@@ -29,6 +29,7 @@
     </table>
 
     <v-btn id ="enroll" class="ma-2" outlined color="blue">Enroll</v-btn> -->
+  
   <div id="table">
   <v-simple-table dark>
     <template v-slot:default>
@@ -57,7 +58,10 @@
   </v-simple-table>
   </div>
 
-  <v-btn id="enroll" v-bind:disabled="userSelections.length == 0" @click="yourButtonHandler" v-show="isLoggedIn === true" class="ma-2" outlined color="blue">Enroll</v-btn>
+  <v-btn v-bind:disabled="userSelections.length == 0" 
+    @click="yourButtonHandler" 
+    v-show="isLoggedIn === true" 
+    class="ma-2" outlined color="blue">Enroll</v-btn>
 
   </div>
 </div>
@@ -83,7 +87,6 @@ export default {
   },
   
   methods: {
-  
     dataHandler(snapshot) {
       const item = snapshot.val();
       this.myClass.push({ ...item, mykey: snapshot.key });
@@ -98,7 +101,7 @@ export default {
           description: this.description,
           numbers: this.numbers,
           remainingSeats: this.remainingSeats,
-          totalSeats: this.totalSeats,
+          totalSeats: this.totalSeats
       });    
     },
 
@@ -115,13 +118,13 @@ export default {
     }, 
   },
 
-    mounted() {
-          AppDB.ref("classes").on("child_added", this.dataHandler);
-          AppAUTH.onAuthStateChanged((u) => {
-            if (u == null) this.isLoggedIn = false;
-            else this.isLoggedIn = true;
-          });         
-    }
+  mounted() {
+    AppDB.ref("classes").on("child_added", this.dataHandler);
+    AppAUTH.onAuthStateChanged((u) => {
+      if (u == null) this.isLoggedIn = false;
+      else this.isLoggedIn = true;
+    });         
+  }
 };
 
 
