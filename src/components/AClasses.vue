@@ -31,31 +31,31 @@
     <v-btn id ="enroll" class="ma-2" outlined color="blue">Enroll</v-btn> -->
   
   <div id="table">
-  <v-simple-table dark>
-    <template v-slot:default>
-      <thead>
-        <tr>
-          <th class="text-center">Abv</th>
-          <th class="text-center">Number</th>
-          <th class="text-center">Description</th>
-          <th class="text-center">Total Seats</th>
-          <th class="text-center">Remaining Seats</th>
-          <th class="text-center">Time</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr v-for="(myClass,pos) in myClass" :key="pos">
-          <td>{{ myClass.abv }}</td>
-          <td>{{ myClass.numbers }}</td>
-          <td>{{ myClass.description}}</td>
-          <td>{{ myClass.totalSeats }}</td>
-          <td>{{ myClass.remainingSeats }}</td>
-          <td>{{ myClass.meetingTime }}</td>
-          <td><input type="checkbox" v-bind:id="myClass.mykey" v-on:change="selectionHandler" /></td>
-        </tr>
-      </tbody>
-    </template>
-  </v-simple-table>
+    <v-simple-table dark>
+      <template v-slot:default>
+        <thead>
+          <tr>
+            <th class="text-center">Abv</th>
+            <th class="text-center">Number</th>
+            <th class="text-center">Description</th>
+            <th class="text-center">Total Seats</th>
+            <th class="text-center">Remaining Seats</th>
+            <th class="text-center">Time</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr v-for="(myClass,pos) in myClass" :key="pos">
+            <td>{{ myClass.abv }}</td>
+            <td>{{ myClass.numbers }}</td>
+            <td>{{ myClass.description}}</td>
+            <td>{{ myClass.totalSeats }}</td>
+            <td>{{ myClass.remainingSeats }}</td>
+            <td>{{ myClass.meetingTime }}</td>
+            <td><input type="checkbox" v-bind:id="myClass.mykey" v-on:change="selectionHandler" /></td>
+          </tr>
+        </tbody>
+      </template>
+    </v-simple-table>
   </div>
 
   <v-btn v-bind:disabled="userSelections.length == 0" 
@@ -126,8 +126,6 @@ export default {
     });         
   }
 };
-
-
 </script>
 
 <style>
