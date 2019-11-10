@@ -74,6 +74,7 @@ table {
   padding: 5px;
   margin: auto;
   text-align: center;
+  background: darkblue;
 }
 
 th {
