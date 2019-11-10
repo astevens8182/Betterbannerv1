@@ -29,7 +29,7 @@
     </table>
 
     <v-btn id ="enroll" class="ma-2" outlined color="blue">Enroll</v-btn> -->
-
+  <div id="table">
   <v-simple-table dark>
     <template v-slot:default>
       <thead>
@@ -55,6 +55,7 @@
       </tbody>
     </template>
   </v-simple-table>
+  </div>
 
   <v-btn id ="enroll" v-bind:disabled="userSelections.length == 0" @click="yourButtonHandler" v-show="isLoggedIn === true" class="ma-2" outlined color="blue">Enroll</v-btn>
 
@@ -145,6 +146,7 @@ table {
   padding: 5px;
   margin: auto;
   text-align: center;
+  background: darkblue;
 }
 
 th {
