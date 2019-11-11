@@ -93,6 +93,7 @@ export default {
     },
   
     yourButtonHandler() {
+      // need for loop & user to classes table and data
       AppDB.ref("enrolled")
         .push()
         .set({
