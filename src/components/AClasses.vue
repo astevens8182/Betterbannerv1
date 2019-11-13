@@ -94,17 +94,19 @@ export default {
   
     yourButtonHandler() {
       // need for loop & user to classes table and data
-      AppDB.ref("enrolled")
+                  alert("Success! Enrolled in " + this.userSelections.length + " class(es)!");
+
+      for (let i = 0; i <= this.userSelections.length; i++){
+        AppDB.ref("userToClasses")
         .push()
         .set({
-          abv: this.abv,
-          meetingTime: this.meetingTime,
-          description: this.description,
-          numbers: this.numbers,
-          remainingSeats: this.remainingSeats,
-          totalSeats: this.totalSeats
+          userKey: AppAUTH.currentUser.uid,
+          classKey: this.userSelections[i]
       });    
+      }      
+
     },
+
 
     selectionHandler (changeEvent) {
       // The ID of the checkbox is also the key of the record in Firebase
@@ -124,7 +126,7 @@ export default {
     AppAUTH.onAuthStateChanged((u) => {
       if (u == null) this.isLoggedIn = false;
       else this.isLoggedIn = true;
-    });         
+    }); 
   }
 };
 </script>
