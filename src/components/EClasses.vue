@@ -23,17 +23,21 @@
     </template>
   </v-simple-table>
 
-  <v-btn @click="myRemoveHandler" v-bind:disabled="userSelections.length == 0" class="ma-2" outlined color="blue">Remove Selection(s)</v-btn>
+  <v-btn @click="myRemoveHandler"  class="ma-2" outlined color="blue">Remove Selection(s)</v-btn>
 
   </div>
 </div>
 </template>
 
 <script>
-import { AppDB } from "../db-init.js";
+import { AppDB, AppAUTH } from "../db-init.js";
 export default {
   data: function() {
     return {
+      classList: [],
+      holderEnrolled: [],
+      myClasses: [],
+      enrolledClasses: [],
       abv: "",
       number: 0,
       totalSeats: 0,
@@ -44,6 +48,17 @@ export default {
 
   },
   methods: {
+     dataHandlerClassList(snapshot) {
+      const item = snapshot.val();
+      this.classList.push({ ...item, mykey: snapshot.key });
+    
+    },
+    dataHandlerEnrolledClasses(snapshot){
+      const item = snapshot.val();
+      this.holderEnrolled.push({...item, mykey: snapshot.key});
+      this.enrolledClasses = this.holderEnrolled.filter(z => z.userKey === AppAUTH.currentUser.uid);
+      
+    },
   myRemoveHandler () {
     this.userSelections.forEach((victimKey) => {
         AppDB.ref('budget').child(victimKey).remove();
@@ -51,7 +66,10 @@ export default {
     },
   },
     mounted() {
-  }
+          AppDB.ref("classes").on("child_added", this.dataHandlerClassList);
+          AppDB.ref("userToClasses").on("child_added", this.dataHandlerEnrolledClasses);
+  },
+
 };
 </script>
 
