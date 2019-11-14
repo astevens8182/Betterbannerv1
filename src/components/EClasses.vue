@@ -51,19 +51,21 @@ export default {
      dataHandlerClassList(snapshot) {
       const item = snapshot.val();
       this.classList.push({ ...item, mykey: snapshot.key });
-    
+    //valuelistiner
     },
     dataHandlerEnrolledClasses(snapshot){
       const item = snapshot.val();
       this.holderEnrolled.push({...item, mykey: snapshot.key});
       this.enrolledClasses = this.holderEnrolled.filter(z => z.userKey === AppAUTH.currentUser.uid);
-      
     },
   myRemoveHandler () {
     this.userSelections.forEach((victimKey) => {
         AppDB.ref('budget').child(victimKey).remove();
       })
     },
+    testfunction(){
+      
+    }
   },
     mounted() {
           AppDB.ref("classes").on("child_added", this.dataHandlerClassList);
