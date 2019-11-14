@@ -93,23 +93,40 @@ export default {
     },
   
     yourButtonHandler() {
-      // need for loop & user to classes table and data
-                  alert("Success! Enrolled in " + this.userSelections.length + " class(es)!");
-
+      alert("Success! Enrolled in " + this.userSelections.length + " class(es)!");
       for (let i = 0; i <= this.userSelections.length; i++){
         AppDB.ref("userToClasses")
         .push()
         .set({
           userKey: AppAUTH.currentUser.uid,
           classKey: this.userSelections[i]
-      });    
+      });  
+      let temp = this.myClass.find(x => x.mykey === this.userSelections[i]);
+      temp.remainingSeats -= 1;
+      let tempKey = temp.mykey;
+      AppDB.ref("classes/" +tempKey)
+      .set({
+        abv: temp.abv,
+        description: temp.description,
+        meetingTime: temp.meetingTime,
+        numbers: temp.numbers,
+        remainingSeats : temp.remainingSeats,
+        totalSeats: temp.totalSeats
+      })
       }      
 
     },
 
 
     selectionHandler (changeEvent) {
-      // The ID of the checkbox is also the key of the record in Firebase
+      var text = changeEvent.target.id;
+      var integer = parseInt(text, 10)
+      integer = integer -1;
+      if(this.myClass[integer].remainingSeats === 0){
+        changeEvent.target.checked = false;
+        alert("Class is full! Wait for someone to drop");
+        return;
+      }
       const whichKey = changeEvent.target.id;
       if (changeEvent.target.checked) {
       // add the selected key to the array
