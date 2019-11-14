@@ -18,7 +18,14 @@
         </tr>
       </thead>
       <tbody>
-        
+  <tr v-for="(myClasses,pos) in myClasses" :key="pos">
+            <td>{{ myClasses.abv }}</td>
+            <td>{{ myClasses.numbers }}</td>
+            <td>{{ myClasses.description}}</td>
+            <td>{{ myClasses.totalSeats }}</td>
+            <td>{{ myClasses.remainingSeats }}</td>
+            <td>{{ myClasses.meetingTime }}</td>
+          </tr>
       </tbody>
     </template>
   </v-simple-table>
@@ -31,6 +38,7 @@
 
 <script>
 import { AppDB, AppAUTH } from "../db-init.js";
+
 export default {
   data: function() {
     return {
@@ -51,25 +59,31 @@ export default {
      dataHandlerClassList(snapshot) {
       const item = snapshot.val();
       this.classList.push({ ...item, mykey: snapshot.key });
-    //valuelistiner
     },
     dataHandlerEnrolledClasses(snapshot){
       const item = snapshot.val();
       this.holderEnrolled.push({...item, mykey: snapshot.key});
       this.enrolledClasses = this.holderEnrolled.filter(z => z.userKey === AppAUTH.currentUser.uid);
-    },
+   },
+
   myRemoveHandler () {
     this.userSelections.forEach((victimKey) => {
         AppDB.ref('budget').child(victimKey).remove();
       })
     },
-    testfunction(){
-      
-    }
+  
   },
     mounted() {
           AppDB.ref("classes").on("child_added", this.dataHandlerClassList);
           AppDB.ref("userToClasses").on("child_added", this.dataHandlerEnrolledClasses);
+          for(let i = 0; i <= this.enrolledClasses.length; i++){
+            let temp = this.classList.find(s => s.mykey === this.enrolledClasses[i].classKey);
+            this.myClasses.push(temp);
+          }
+      
+
+
+          
   },
 
 };
