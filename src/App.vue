@@ -58,7 +58,6 @@
           <v-list-item-content><v-btn text small @click="goHome">Home</v-btn></v-list-item-content>
           <v-list-item-content><v-btn text small @click="goAClasses">Available Classes</v-btn></v-list-item-content>
           <v-list-item-content><v-btn text small @click="goEClasses" v-show="isLoggedIn === true">Enrolled Classes</v-btn></v-list-item-content>
-          <v-list-item-content><v-btn text small @click="goEClasses" v-show="isLoggedIn === true">Delete Account</v-btn></v-list-item-content>
         </v-list>
       </v-menu>
     </v-app-bar>
