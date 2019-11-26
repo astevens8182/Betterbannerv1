@@ -6,7 +6,7 @@
   <div id="content">
     <p class="font-weight-black">Welcome!</p>
   
-    <p class="font-weight-regular">FILLER TEXT</p>
+    <p class="font-weight-regular">Welcome to BetterBanner! This is where you can pick which classes you want to take here at GVSU. Please login/signup to enroll in a class!</p>
   </div>
 
 </div>
