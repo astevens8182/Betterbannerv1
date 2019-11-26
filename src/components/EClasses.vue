@@ -31,7 +31,7 @@
     </template>
   </v-simple-table>
 
-  <v-btn @click="myRemoveHandler"  class="ma-2" outlined color="blue">Remove Selection(s)</v-btn>
+  <v-btn @click="myRemoveHandler" v-bind:disabled="userSelections.length == 0"  class="ma-2" outlined color="blue">Remove Selection(s)</v-btn>
 
   </div>
 </div>
@@ -52,6 +52,7 @@ export default {
       totalSeats: 0,
       remainingSeats: 0,
       date: "",
+      test: [],
       userSelections: []
     };
 
@@ -68,12 +69,10 @@ export default {
    },
 
   myRemoveHandler () {
-    this.userSelections.forEach((victimKey) => {
-        AppDB.ref('budget').child(victimKey).remove();
+          alert("Success! Dropped in " + this.test.length + " class(es)!");
 
         for (let i = 0; i <= this.userSelections.length; i++){
-        AppDB.ref("userToClasses")
-        .child(victimKey).remove();
+          AppDB.ref("userToClasses").child(this.test[i].mykey).remove();
         
       let temp = this.classList.find(x => x.mykey === this.userSelections[i]);
       temp.remainingSeats += 1;
@@ -88,7 +87,7 @@ export default {
         totalSeats: temp.totalSeats
       })
       }      
-      })
+   
     },
   
     selectionHandler (changeEvent) {
@@ -100,6 +99,8 @@ export default {
       //   alert("Class is full! Wait for someone to drop");
       //   return;
       // }
+       this.test = this.enrolledClasses.filter(x => x.userKey === AppAUTH.currentUser.uid && x.classKey === changeEvent.target.id);
+
       const whichKey = changeEvent.target.id;
       if (changeEvent.target.checked) {
       // add the selected key to the array
@@ -117,8 +118,6 @@ export default {
             let temp = this.classList.find(s => s.mykey === this.enrolledClasses[i].classKey);
             this.myClasses.push(temp);
           }
-          AppDB.ref()
-        AppDB.ref("userToClasses").on("child_removed",this.dataHandlerClassList);
 
 
           
