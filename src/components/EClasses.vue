@@ -25,6 +25,7 @@
             <td>{{ myClasses.totalSeats }}</td>
             <td>{{ myClasses.remainingSeats }}</td>
             <td>{{ myClasses.meetingTime }}</td>
+            <td><input type="checkbox" v-bind:id="myClasses.mykey" v-on:change="selectionHandler" /></td>
           </tr>
       </tbody>
     </template>
@@ -69,9 +70,45 @@ export default {
   myRemoveHandler () {
     this.userSelections.forEach((victimKey) => {
         AppDB.ref('budget').child(victimKey).remove();
+
+        for (let i = 0; i <= this.userSelections.length; i++){
+        AppDB.ref("userToClasses")
+        .child(victimKey).remove();
+        
+      let temp = this.classList.find(x => x.mykey === this.userSelections[i]);
+      temp.remainingSeats += 1;
+      let tempKey = temp.mykey;
+      AppDB.ref("classes/" +tempKey)
+      .set({
+        abv: temp.abv,
+        description: temp.description,
+        meetingTime: temp.meetingTime,
+        numbers: temp.numbers,
+        remainingSeats : temp.remainingSeats,
+        totalSeats: temp.totalSeats
+      })
+      }      
       })
     },
   
+    selectionHandler (changeEvent) {
+      // var text = changeEvent.target.id;
+      // var integer = parseInt(text, 10)
+      // integer = integer -1;
+      // if(this.myClasses[integer].remainingSeats === 0){
+      //   changeEvent.target.checked = false;
+      //   alert("Class is full! Wait for someone to drop");
+      //   return;
+      // }
+      const whichKey = changeEvent.target.id;
+      if (changeEvent.target.checked) {
+      // add the selected key to the array
+        this.userSelections.push(whichKey);
+      } else {
+      // remove the deselected key from the array
+          this.userSelections = this.userSelections.filter(a => {a.whichKey == whichKey});        
+      }
+    }, 
   },
     mounted() {
           AppDB.ref("classes").on("child_added", this.dataHandlerClassList);
@@ -80,7 +117,8 @@ export default {
             let temp = this.classList.find(s => s.mykey === this.enrolledClasses[i].classKey);
             this.myClasses.push(temp);
           }
-      
+          AppDB.ref()
+        AppDB.ref("userToClasses").on("child_removed",this.dataHandlerClassList);
 
 
           
